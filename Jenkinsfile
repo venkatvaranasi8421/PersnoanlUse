@@ -15,7 +15,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                nextVersion(writeVersion: true)
+                nextVersion()
                 echo 'This is a minimal pipeline.'
             }
         }
