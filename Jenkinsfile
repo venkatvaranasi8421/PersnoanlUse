@@ -11,5 +11,19 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        
+        stage("Build") {
+
+      steps {
+           container("maven-build") {
+                script {
+                  sh "mvn -B clean package"
+                }
+              }
+            } 
+          } // steps
+        } // stage("Build")
     }
+    
+    
 }
