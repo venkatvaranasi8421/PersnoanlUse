@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NEXT_VERSION = nextVersion(writeVersion: true)
+        NEXT_VERSION = nextVersion()
     }
     stages {
         stage('Hello') {
