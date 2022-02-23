@@ -15,6 +15,10 @@ pipeline {
 
         stage ('Build') {
             steps {
+                def NextVersion = nextVersion()
+                def CurrentVersion = currentVersion()
+                echo 'Current Version: $[CurrentVersion}'
+                echo 'Next Version: ${NextVersion}'
                 echo 'This is a minimal pipeline.'
             }
         }
