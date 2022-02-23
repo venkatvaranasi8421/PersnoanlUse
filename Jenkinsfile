@@ -3,9 +3,6 @@ pipeline {
     tools { 
         maven 'maven-path'
     }
-    environment {
-        NEXT_VERSION = nextVersion(writeVersion: true)
-    }
     stages {
         stage ('Initialize') {
             steps {
@@ -18,7 +15,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                echo "next version = ${NEXT_VERSION}"
+                nextVersion(writeVersion: true)
                 echo 'This is a minimal pipeline.'
             }
         }
