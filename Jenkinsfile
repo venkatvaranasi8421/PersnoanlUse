@@ -1,25 +1,23 @@
 pipeline {
     agent any
-
-    environment {
-        NEXT_VERSION = nextVersion()
+    tools { 
+        maven 'Maven 3.8.4' 
+        jdk 'jdk8' 
     }
     stages {
-        stage('Hello') {
+        stage ('Initialize') {
             steps {
-                echo "Next Version:: ${NEXT_VERSION}"
-                echo 'Hello World'
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
             }
         }
-        
-        stage("Build") {
+
+        stage ('Build') {
             steps {
-                container("maven-build") {
-                    script {
-                      sh "mvn -B clean package"
-                    }
-                }
-            } 
-        } 
+                echo 'This is a minimal pipeline.'
+            }
+        }
     }
 }
