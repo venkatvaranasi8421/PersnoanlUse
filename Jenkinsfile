@@ -15,9 +15,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install'
                 nextVersion()
-                echo 'This is a minimal pipeline.'
             }
         }
     }
